@@ -51,9 +51,19 @@ package com.example.test_login;
 
                     // Simular proceso de login - aquí implementarías tu lógica real
                     v.postDelayed(() -> {
+                        // Iniciar la actividad de inicio después de un login exitoso
+                        Intent intent = new Intent(MainActivity.this, InicioActivity.class);
+                        startActivity(intent);
+
+                        // Opcional: muestra un mensaje de éxito
                         Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+
+                        // Restablecer el botón (aunque no se verá si navegas a otra actividad)
                         btnLogin.setEnabled(true);
                         btnLogin.setText("Iniciar sesión");
+
+                        // Opcional: si quieres que MainActivity no quede en el historial de navegación
+                        // finish();
                     }, 1500);
                 }
             });
